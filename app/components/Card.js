@@ -18,7 +18,6 @@ export const Card = ({ title, subTitle, imagePath, cardStyle = {} }) => {
 
 const styles = StyleSheet.create({
   cardContainer: {
-    width: "90%",
     borderRadius: 15,
     backgroundColor: colors.white,
     overflow: "hidden",

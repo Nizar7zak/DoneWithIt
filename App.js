@@ -1,12 +1,12 @@
 import { StatusBar as StatusBarExpo } from "expo-status-bar";
 import { View, StyleSheet } from "react-native";
 
-import Account from "./app/screens/Account";
+import Listing from "./app/screens/Listing";
 import colors from "./app/config/colors";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Account />
+      <Listing />
       <StatusBarExpo style="auto" />
     </View>
   );
