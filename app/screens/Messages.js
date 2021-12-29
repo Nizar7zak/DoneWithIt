@@ -1,12 +1,13 @@
+import { useState } from "react";
 import { FlatList, StyleSheet } from "react-native";
-import { ItemDeleteActions } from "../components/ItemDeleteActions";
 
+import { ItemDeleteActions } from "../components/ItemDeleteActions";
 import { ItemSeparator } from "../components/ItemSperator";
 import { ListItem } from "../components/ListItem";
 import { SafeScreen } from "../components/SafeScreen";
 import colors from "../config/colors";
 
-const messages = [
+const messagesData = [
   {
     id: 1,
     title: "nizar",
@@ -22,6 +23,10 @@ const messages = [
 ];
 
 const Messages = () => {
+  const [messages, setMessages] = useState(messagesData);
+  const handleDelete = (message) => {
+    setMessages(messages.filter((m) => m.id !== message.id));
+  };
   return (
     <SafeScreen>
       <FlatList
@@ -34,7 +39,9 @@ const Messages = () => {
             subTitle={item.description}
             imagePath={item.image}
             onPress={() => console.log("item Selected", item)}
-            renderRightActions={ItemDeleteActions}
+            renderRightActions={() => (
+              <ItemDeleteActions onPress={() =>handleDelete(item)} />
+            )}
           />
         )}
         ItemSeparatorComponent={ItemSeparator}
