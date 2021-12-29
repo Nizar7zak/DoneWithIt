@@ -1,4 +1,5 @@
 import { View, StyleSheet, Image } from "react-native";
+import { AppImage } from "../components/Image";
 import colors from "../config/colors";
 const ImageView = () => {
   return (
@@ -7,7 +8,7 @@ const ImageView = () => {
         <View style={styles.closeIcon}></View>
         <View style={styles.deleteIcon}></View>
       </View>
-      <Image source={require("../assets/view.png")} style={styles.image} />
+      <AppImage imagePath={require("../assets/view.png")} imageStyle={styles.image} />
     </View>
   );
 };

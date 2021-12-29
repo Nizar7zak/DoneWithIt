@@ -1,7 +1,8 @@
-import { View, ImageBackground, StyleSheet, Image } from "react-native";
+import { View, ImageBackground, StyleSheet } from "react-native";
 import colors from "../config/colors";
 import { Text } from "../components/Text";
 import Button from "../components/Button";
+import { AppImage } from "../components/Image";
 const Welcome = () => {
   return (
     <ImageBackground
@@ -10,9 +11,9 @@ const Welcome = () => {
       style={styles.imageContainer}
     >
       <View style={styles.logoContainer}>
-        <Image
-          style={styles.imageLogo}
-          source={require("../assets/logo.png")}
+        <AppImage
+          imageStyle={styles.imageLogo}
+          imagePath={require("../assets/logo.png")}
         />
         <Text value="Sell what you don't need" style={styles.tagLine} />
       </View>
