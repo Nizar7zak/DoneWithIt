@@ -1,4 +1,5 @@
 import { Text as RNText } from "react-native";
+
 import colors from "../config/colors";
 
 const typographies = {
@@ -22,7 +23,7 @@ const typographies = {
   },
 };
 
-export const Text = ({
+export const AppText = ({
   color = colors.black,
   onPress = () => {},
   style = {},

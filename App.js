@@ -1,6 +1,5 @@
 import { StatusBar as StatusBarExpo } from "expo-status-bar";
 import { Platform, SafeAreaView, StyleSheet, StatusBar } from "react-native";
-import ImageView from "./app/screens/ImageView";
 
 import Welcome from "./app/screens/Welcome";
 

@@ -1,8 +1,10 @@
 import { View, ImageBackground, StyleSheet } from "react-native";
+
 import colors from "../config/colors";
-import { Text } from "../components/Text";
-import Button from "../components/Button";
-import { AppImage } from "../components/Image";
+import { AppText } from "../components/AppText";
+import {AppButton} from "../components/AppButton";
+import { AppImage } from "../components/AppImage";
+
 const Welcome = () => {
   return (
     <ImageBackground
@@ -15,11 +17,11 @@ const Welcome = () => {
           imageStyle={styles.imageLogo}
           imagePath={require("../assets/logo.png")}
         />
-        <Text value="Sell what you don't need" style={styles.tagLine} />
+        <AppText value="Sell what you don't need" style={styles.tagLine} />
       </View>
       <View style={styles.buttonsContainer}>
-        <Button title="login" style={styles.loginButton} />
-        <Button title="sign up" style={styles.signupButton} />
+        <AppButton title="login" style={styles.loginButton} />
+        <AppButton title="sign up" style={styles.signupButton} />
       </View>
     </ImageBackground>
   );
