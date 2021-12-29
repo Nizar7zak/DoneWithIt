@@ -11,13 +11,13 @@ export const ListItem = ({
   imagePath,
   onPress,
   renderRightActions,
-  ImageComponent,
+  IconComponent,
 }) => {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.grey} onPress={onPress}>
         <View style={styles.listItem}>
-          {ImageComponent}
+          {IconComponent}
           {imagePath && (
             <AppImage imagePath={imagePath} imageStyle={styles.image} />
           )}
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 10,
     alignItems: "center",
+    backgroundColor:colors.white,
   },
   image: {
     width: 70,
