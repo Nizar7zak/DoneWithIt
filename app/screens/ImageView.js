@@ -20,7 +20,8 @@ const ImageView = () => {
 
 const styles = StyleSheet.create({
   viewImageContainer: {
-    flex: 1,
+    width:"100%",
+    height:"100%",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.black,

@@ -3,9 +3,6 @@ import colors from "../config/colors";
 
 import { AppImage } from "./AppImage";
 import { AppText } from "./AppText";
-{
-  /* <Card title="hello" subTitle="50" imagePath={require("./app/assets/example.jpg")} /> */
-}
 
 export const Card = ({ title, subTitle, imagePath, cardStyle = {} }) => {
   return (
