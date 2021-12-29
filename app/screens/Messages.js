@@ -1,4 +1,5 @@
 import { FlatList, StyleSheet } from "react-native";
+import { ItemDeleteActions } from "../components/ItemDeleteActions";
 
 import { ItemSeparator } from "../components/ItemSperator";
 import { ListItem } from "../components/ListItem";
@@ -33,6 +34,7 @@ const Messages = () => {
             subTitle={item.description}
             imagePath={item.image}
             onPress={() => console.log("item Selected", item)}
+            renderRightActions={ItemDeleteActions}
           />
         )}
         ItemSeparatorComponent={ItemSeparator}
