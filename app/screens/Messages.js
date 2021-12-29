@@ -24,6 +24,7 @@ const messagesData = [
 
 const Messages = () => {
   const [messages, setMessages] = useState(messagesData);
+  const [refreshing, setRefreshing] = useState(false);
   const handleDelete = (message) => {
     setMessages(messages.filter((m) => m.id !== message.id));
   };
@@ -40,10 +41,21 @@ const Messages = () => {
             imagePath={item.image}
             onPress={() => console.log("item Selected", item)}
             renderRightActions={() => (
-              <ItemDeleteActions onPress={() =>handleDelete(item)} />
+              <ItemDeleteActions onPress={() => handleDelete(item)} />
             )}
           />
         )}
+        refreshing={refreshing}
+        onRefresh={() =>
+          setMessages([
+            {
+              id: 2,
+              title: "hany",
+              description: "Tschuss",
+              image: require("../assets/user2.png"),
+            },
+          ])
+        }
         ItemSeparatorComponent={ItemSeparator}
       />
     </SafeScreen>
