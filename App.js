@@ -1,12 +1,12 @@
 import { StatusBar as StatusBarExpo } from "expo-status-bar";
 import { Platform, SafeAreaView, StyleSheet, StatusBar } from "react-native";
 import colors from "./app/config/colors";
-import ListingDetails from "./app/screens/ListingDetails";
+import ImageView from "./app/screens/ImageView";
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <ListingDetails />
+      <ImageView />
 
       <StatusBarExpo style="auto" />
     </SafeAreaView>

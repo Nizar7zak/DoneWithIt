@@ -15,7 +15,9 @@ const ListingDetails = () => {
         <AppText value="Hello Jake" style={styles.title} />
         <AppText value="50" style={styles.subTitle} />
       </View>
+
       <ListItem
+        style={styles.userContainer}
         title="Nizar Zakout"
         subTitle="5 Items"
         imagePath={require("../assets/user1.jpg")}
@@ -46,6 +48,9 @@ const styles = StyleSheet.create({
     color: colors.secondary,
     fontSize: 20,
     fontWeight: "bold",
+  },
+  userContainer: {
+    marginVertical: 50,
   },
 });
 export default ListingDetails;

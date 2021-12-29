@@ -1,4 +1,5 @@
 import { View, StyleSheet } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons"
 
 import { AppImage } from "../components/AppImage";
 import colors from "../config/colors";
@@ -7,8 +8,13 @@ const ImageView = () => {
   return (
     <View style={styles.viewImageContainer}>
       <View style={styles.buttonsContainer}>
-        <View style={styles.closeIcon}></View>
-        <View style={styles.deleteIcon}></View>
+        <View style={styles.closeIcon}>
+          <MaterialCommunityIcons name="close" color="white" size={30} />
+        </View>
+        <View style={styles.deleteIcon}>
+        <MaterialCommunityIcons name="delete" color="white" size={30} />
+
+        </View>
       </View>
       <AppImage
         imagePath={require("../assets/view.png")}
@@ -37,16 +43,6 @@ const styles = StyleSheet.create({
   image: {
     height: "73%",
     width: "100%",
-  },
-  closeIcon: {
-    height: 50,
-    width: 50,
-    backgroundColor: colors.primary,
-  },
-  deleteIcon: {
-    height: 50,
-    width: 50,
-    backgroundColor: colors.secondary,
   },
 });
 
