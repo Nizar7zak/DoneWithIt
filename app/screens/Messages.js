@@ -32,6 +32,7 @@ const Messages = () => {
             title={item.title}
             subTitle={item.description}
             imagePath={item.image}
+            onPress={() => console.log("item Selected", item)}
           />
         )}
         ItemSeparatorComponent={ItemSeparator}
