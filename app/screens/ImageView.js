@@ -3,7 +3,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { AppImage } from "../components/AppImage";
 import colors from "../config/colors";
-import SafeScreen from "../components/SafeScreen";
+import { SafeScreen } from "../components/SafeScreen";
 
 const ImageView = () => {
   return (

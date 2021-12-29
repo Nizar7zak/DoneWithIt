@@ -1,6 +1,10 @@
 import { FlatList, StyleSheet } from "react-native";
+
+import { ItemSeparator } from "../components/ItemSperator";
 import { ListItem } from "../components/ListItem";
-import SafeScreen from "../components/SafeScreen";
+import { SafeScreen } from "../components/SafeScreen";
+import colors from "../config/colors";
+
 const messages = [
   {
     id: 1,
@@ -30,13 +34,14 @@ const Messages = () => {
             imagePath={item.image}
           />
         )}
+        ItemSeparatorComponent={ItemSeparator}
       />
     </SafeScreen>
   );
 };
 const styles = StyleSheet.create({
   messages: {
-    backgroundColor: "#f1f1f1",
+    backgroundColor: colors.white,
   },
 });
 

@@ -18,13 +18,13 @@ export const ListItem = ({ title, subTitle, imagePath }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
+    padding: 10,
   },
   image: {
     width: 70,
     height: 70,
     borderRadius: 35,
-    marginLeft: 20,
-    marginRight: 10,
+    marginHorizontal: 10,
   },
   detailsContainer: {
     height: 70,
