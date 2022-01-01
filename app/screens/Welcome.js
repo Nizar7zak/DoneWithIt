@@ -17,7 +17,7 @@ const Welcome = () => {
           imageStyle={styles.imageLogo}
           imagePath={require("../assets/logo.png")}
         />
-        <AppText value="Sell what you don't need" style={styles.tagLine} />
+        <AppText style={styles.tagLine}>Sell what you don't need </AppText>
       </View>
       <View style={styles.buttonsContainer}>
         <AppButton title="login" style={styles.loginButton} />

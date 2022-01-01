@@ -6,7 +6,7 @@ import { AppText } from "./AppText";
 export const AppButton = ({ title, onPress, style }) => {
   return (
     <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
-      <AppText value={title} style={styles.text} />
+      <AppText style={styles.text}>{title}</AppText>
     </TouchableOpacity>
   );
 };

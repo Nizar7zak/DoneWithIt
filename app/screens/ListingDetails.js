@@ -12,8 +12,8 @@ const ListingDetails = () => {
         imagePath={require("../assets/example.jpg")}
       />
       <View style={styles.detailsContainer}>
-        <AppText value="Hello Jake" style={styles.title} />
-        <AppText value="50" style={styles.subTitle} />
+        <AppText style={styles.title}>Hello Jake</AppText>
+        <AppText style={styles.subTitle}>50</AppText>
       </View>
 
       <ListItem

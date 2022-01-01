@@ -22,13 +22,11 @@ export const ListItem = ({
             <AppImage imagePath={imagePath} imageStyle={styles.image} />
           )}
           <View style={styles.detailsContainer}>
-            <AppText value={title} style={styles.title} />
+            <AppText style={styles.title}>{title}</AppText>
             {subTitle && (
-              <AppText
-                value={subTitle}
-                style={styles.subTitle}
-                typography="p2"
-              />
+              <AppText style={styles.subTitle}>
+                {subTitle}
+              </AppText>
             )}
           </View>
         </View>
@@ -42,7 +40,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 10,
     alignItems: "center",
-    backgroundColor:colors.white,
+    backgroundColor: colors.white,
   },
   image: {
     width: 70,

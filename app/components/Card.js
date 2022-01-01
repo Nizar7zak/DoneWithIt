@@ -9,8 +9,8 @@ export const Card = ({ title, subTitle, imagePath, cardStyle = {} }) => {
     <View style={[styles.cardContainer, cardStyle]}>
       <AppImage imageStyle={styles.imageStyle} imagePath={imagePath} />
       <View style={styles.detailsContainer}>
-        <AppText value={title} style={styles.title} />
-        <AppText value={subTitle} style={styles.subTitle} />
+        <AppText style={styles.title}>{title}</AppText>
+        <AppText style={styles.subTitle}>{subTitle}</AppText>
       </View>
     </View>
   );

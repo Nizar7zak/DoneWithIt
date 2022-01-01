@@ -10,9 +10,9 @@ export const LoadingScreen = () => {
       <AppText
         color={colors.black}
         style={styles.loadingText}
-        typography="h1"
-        value="Loading..."
-      />
+      >
+        Loading...
+      </AppText>
     </View>
   );
 };
