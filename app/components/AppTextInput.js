@@ -6,12 +6,12 @@ import defaultStyles from "../config/defaultStyles";
 export const AppTextInput = ({ iconName, ...otherProps }) => {
   return (
     <View style={styles.container}>
-      <MaterialCommunityIcons
+     {iconName && <MaterialCommunityIcons
         name={iconName}
         size={20}
         color={defaultStyles.colors.medium}
         style={styles.icon}
-      />
+      />}
       <TextInput style={defaultStyles.text} {...otherProps} />
     </View>
   );
@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     backgroundColor: defaultStyles.colors.grey,
     borderRadius: 35,
-    marginTop: 50,
   },
   icon: {
     marginRight: 10,
