@@ -22,7 +22,7 @@ export const AppPicker = ({
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
-    <View>
+    <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
         <View style={styles.container}>
           {iconName && (
@@ -68,7 +68,7 @@ export const AppPicker = ({
           />
         </SafeScreen>
       </Modal>
-    </View>
+    </>
   );
 };
 
