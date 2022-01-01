@@ -6,12 +6,14 @@ import defaultStyles from "../config/defaultStyles";
 export const AppTextInput = ({ iconName, ...otherProps }) => {
   return (
     <View style={styles.container}>
-     {iconName && <MaterialCommunityIcons
-        name={iconName}
-        size={20}
-        color={defaultStyles.colors.medium}
-        style={styles.icon}
-      />}
+      {iconName && (
+        <MaterialCommunityIcons
+          name={iconName}
+          size={20}
+          color={defaultStyles.colors.medium}
+          style={styles.icon}
+        />
+      )}
       <TextInput style={defaultStyles.text} {...otherProps} />
     </View>
   );
