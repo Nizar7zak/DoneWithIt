@@ -4,14 +4,22 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
   Modal,
-  Button,
+  FlatList,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import defaultStyles from "../config/defaultStyles";
 import { AppText } from "./AppText";
+import { PickerItem } from "./PickerItem";
+import { SafeScreen } from "./SafeScreen";
 
-export const AppPicker = ({ iconName, placeholder }) => {
+export const AppPicker = ({
+  iconName,
+  placeholder,
+  categories,
+  selectedItem,
+  onSelectItem,
+}) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View>
@@ -25,7 +33,9 @@ export const AppPicker = ({ iconName, placeholder }) => {
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text}>{placeholder}</AppText>
+          <AppText style={styles.text}>
+            {selectedItem ? selectedItem.label : placeholder}
+          </AppText>
           <MaterialCommunityIcons
             name="chevron-down"
             size={20}
@@ -33,11 +43,30 @@ export const AppPicker = ({ iconName, placeholder }) => {
           />
         </View>
       </TouchableWithoutFeedback>
+
       <Modal visible={modalVisible} animationType="slide">
-        <Button
-          title="close Modal"
-          onPress={() => setModalVisible(false)}
-        ></Button>
+        <SafeScreen>
+          <MaterialCommunityIcons
+            name="close"
+            size={25}
+            style={styles.closeIcon}
+            onPress={() => setModalVisible(false)}
+          />
+          <FlatList
+            data={categories}
+            keyExtractor={(item) => item.value.toString()}
+            renderItem={({ item }) => (
+              <PickerItem
+                label={item.label}
+                color={defaultStyles.colors.medium}
+                onPress={() => {
+                  onSelectItem(item);
+                  setModalVisible(false);
+                }}
+              />
+            )}
+          />
+        </SafeScreen>
       </Modal>
     </View>
   );
@@ -58,5 +87,8 @@ const styles = StyleSheet.create({
   },
   text: {
     flex: 1,
+  },
+  closeIcon: {
+    alignSelf: "center",
   },
 });
