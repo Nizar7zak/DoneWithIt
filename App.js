@@ -3,7 +3,6 @@ import { View, StyleSheet } from "react-native";
 
 import colors from "./app/config/colors";
 
-
 export default function App() {
   return (
     <View style={styles.container}>
