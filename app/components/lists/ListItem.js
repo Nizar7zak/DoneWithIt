@@ -1,9 +1,9 @@
 import { View, StyleSheet, TouchableHighlight } from "react-native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 
-import colors from "../config/colors";
-import { AppImage } from "./AppImage";
-import { AppText } from "./AppText";
+import colors from "../../config/colors";
+import { AppImage } from "../AppImage";
+import { AppText } from "../AppText";
 
 export const ListItem = ({
   title,

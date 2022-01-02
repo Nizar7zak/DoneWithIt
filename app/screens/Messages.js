@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { FlatList, StyleSheet } from "react-native";
 
-import { ItemDeleteActions } from "../components/ItemDeleteActions";
-import { ItemSeparator } from "../components/ItemSperator";
-import { ListItem } from "../components/ListItem";
+import { ItemDeleteActions, ItemSeparator, ListItem } from "../components/lists";
 import { SafeScreen } from "../components/SafeScreen";
 import colors from "../config/colors";
 
