@@ -1,5 +1,6 @@
 import { View, StyleSheet, TouchableHighlight } from "react-native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../../config/colors";
 import { AppImage } from "../AppImage";
@@ -29,6 +30,7 @@ export const ListItem = ({
               </AppText>
             )}
           </View>
+              <MaterialCommunityIcons size={25} name="chevron-right" color={colors.medium} />
         </View>
       </TouchableHighlight>
     </Swipeable>
@@ -48,6 +50,7 @@ const styles = StyleSheet.create({
     borderRadius: 35,
   },
   detailsContainer: {
+    flex: 1,
     height: 70,
     justifyContent: "center",
     marginHorizontal: 10,
