@@ -3,6 +3,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 
 import { SafeScreen } from "../components/SafeScreen";
+import { AppForm } from "../components/AppForm";
 import { AppFormField } from "../components/AppFormField";
 import { AppImage } from "../components/AppImage";
 import { SubmitButton } from "../components/SubmitButton";
@@ -25,35 +26,31 @@ const Login = () => {
         imageStyle={styles.logo}
         imagePath={require("../assets/logo.png")}
       />
-      <Formik
+      <AppForm
         initialValues={{ email: "", password: "" }}
         validationSchema={validationSchema}
         onSubmit={(values) => console.log(values)}
       >
-        {() => (
-          <>
-            <AppFormField
-              name="email"
-              placeholder="Email"
-              iconName="email"
-              keyboardType="email-address"
-              autoCapitalize="none"
-              autoCorrect={false}
-              textContentType="emailAddress"
-            />
-            <AppFormField
-              name="password"
-              placeholder="Password"
-              iconName="lock"
-              autoCapitalize="none"
-              autoCorrect={false}
-              textContentType="password"
-              secureTextEntry
-            />
-            <SubmitButton title="login" />
-          </>
-        )}
-      </Formik>
+        <AppFormField
+          name="email"
+          placeholder="Email"
+          iconName="email"
+          keyboardType="email-address"
+          autoCapitalize="none"
+          autoCorrect={false}
+          textContentType="emailAddress"
+        />
+        <AppFormField
+          name="password"
+          placeholder="Password"
+          iconName="lock"
+          autoCapitalize="none"
+          autoCorrect={false}
+          textContentType="password"
+          secureTextEntry
+        />
+        <SubmitButton title="login" />
+      </AppForm>
     </SafeScreen>
   );
 };
