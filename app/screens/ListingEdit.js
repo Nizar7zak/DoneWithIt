@@ -43,9 +43,10 @@ const ListingEdit = () => {
           placeholder="Price $"
           keyboardType="numeric"
           maxLength={8}
+          width="30%"
         />
 
-        <AppFormPicker items={items} name="category" placeholder="Category" />
+        <AppFormPicker items={items} name="category" placeholder="Category" width="50%" />
 
         <AppFormField
           name="description"
