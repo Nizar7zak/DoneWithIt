@@ -54,7 +54,7 @@ const SignUp = () => {
           textContentType="password"
           secureTextEntry
         />
-        <SubmitButton title="login" />
+        <SubmitButton title="sign up" />
       </AppForm>
     </SafeScreen>
   );
