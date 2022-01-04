@@ -1,27 +1,17 @@
 import { useState } from "react";
 import { FlatList, StyleSheet } from "react-native";
 
-import { ItemDeleteActions, ItemSeparator, ListItem } from "../components/lists";
+import {
+  ItemDeleteActions,
+  ItemSeparator,
+  ListItem,
+} from "../components/lists";
 import { SafeScreen } from "../components/SafeScreen";
 import colors from "../config/colors";
-
-const messagesData = [
-  {
-    id: 1,
-    title: "nizar",
-    description: "Heey",
-    image: require("../assets/user1.jpg"),
-  },
-  {
-    id: 2,
-    title: "hany",
-    description: "Tschuss",
-    image: require("../assets/user2.png"),
-  },
-];
+import fakeMessagesData from "../project/data/fakeMessagesData";
 
 const Messages = () => {
-  const [messages, setMessages] = useState(messagesData);
+  const [messages, setMessages] = useState(fakeMessagesData);
   const [refreshing, setRefreshing] = useState(false);
   const handleDelete = (message) => {
     setMessages(messages.filter((m) => m.id !== message.id));

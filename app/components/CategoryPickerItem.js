@@ -14,14 +14,14 @@ export const CategoryPickerItem = ({ item, onPress }) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 30,
+    paddingHorizontal: 20,
     paddingVertical: 15,
     alignItems: "center",
     width: "33%",
   },
   label: {
     marginTop: 5,
-    textAlign: "center",
-    fontSize: 16,
+    height: 50,
+    textAlign: "center"
   },
 });

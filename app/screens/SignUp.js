@@ -1,22 +1,10 @@
 import { StyleSheet } from "react-native";
-import * as Yup from "yup";
 
 import { SafeScreen } from "../components/SafeScreen";
 import { AppImage } from "../components/AppImage";
 import { AppForm, AppFormField, SubmitButton } from "../components/forms";
+import signUpSchema from "../project/schema/signUpSchema";
 
-const validationSchema = Yup.object().shape({
-  name: Yup.string().required().min(5).max(10).label("Name"),
-  email: Yup.string().required().email().label("Email"),
-  password: Yup.string()
-    .required()
-    .min(8)
-    .matches(
-      /^(?=\S*[a-z])(?=\S*[A-Z])(?=\S*\d)(?=\S*[^\w\s])\S{8,30}$/,
-      "Password must contain at least 8 characters, one uppercase, one lower case, one number and one special case character"
-    )
-    .label("Password"),
-});
 const SignUp = () => {
   return (
     <SafeScreen style={styles.container}>
@@ -26,7 +14,7 @@ const SignUp = () => {
       />
       <AppForm
         initialValues={{ name: "", email: "", password: "" }}
-        validationSchema={validationSchema}
+        validationSchema={signUpSchema}
         onSubmit={(values) => console.log(values)}
       >
         <AppFormField

@@ -3,24 +3,7 @@ import { StyleSheet, FlatList, View } from "react-native";
 import { Icon } from "../components/Icon";
 import { SafeScreen } from "../components/SafeScreen";
 import { ListItem, ItemSeparator } from "../components/lists";
-import colors from "../config/colors";
-
-const menuItem = [
-  {
-    title: "My Listings",
-    icon: {
-      name: "format-list-bulleted",
-      backgroundColor: colors.primary,
-    },
-  },
-  {
-    title: "Messages",
-    icon: {
-      name: "email",
-      backgroundColor: colors.secondary,
-    },
-  },
-];
+import ItemsAccountScreen from "../project/data/ItemsAccountScreen";
 
 const Account = () => {
   return (
@@ -34,7 +17,7 @@ const Account = () => {
       </View>
       <View style={styles.container}>
         <FlatList
-          data={menuItem}
+          data={ItemsAccountScreen}
           keyExtractor={(item) => item.title}
           renderItem={({ item }) => (
             <ListItem
