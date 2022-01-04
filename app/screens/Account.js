@@ -5,7 +5,7 @@ import { SafeScreen } from "../components/SafeScreen";
 import { ListItem, ItemSeparator } from "../components/lists";
 import ItemsAccountScreen from "../project/data/ItemsAccountScreen";
 
-const Account = () => {
+const Account = ({ navigation }) => {
   return (
     <SafeScreen>
       <View style={styles.container}>
@@ -21,6 +21,7 @@ const Account = () => {
           keyExtractor={(item) => item.title}
           renderItem={({ item }) => (
             <ListItem
+              onPress={() => navigation.navigate(item.targertScreen)}
               title={item.title}
               IconComponent={
                 <Icon

@@ -7,6 +7,7 @@ export default [
       name: "format-list-bulleted",
       backgroundColor: colors.primary,
     },
+    targertScreen: "MyListings"
   },
   {
     title: "Messages",
@@ -14,5 +15,6 @@ export default [
       name: "email",
       backgroundColor: colors.secondary,
     },
+    targertScreen: "Messages"
   },
 ];
