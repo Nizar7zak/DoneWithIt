@@ -5,7 +5,7 @@ import { AppText } from "../components/AppText";
 import { AppButton } from "../components/AppButton";
 import { AppImage } from "../components/AppImage";
 
-const Welcome = () => {
+const Welcome = ({ navigation }) => {
   return (
     <ImageBackground
       blurRadius={12}
@@ -20,8 +20,16 @@ const Welcome = () => {
         <AppText style={styles.tagLine}>Sell what you don't need </AppText>
       </View>
       <View style={styles.buttonsContainer}>
-        <AppButton title="login" style={styles.loginButton} />
-        <AppButton title="sign up" style={styles.signupButton} />
+        <AppButton
+          title="login"
+          style={styles.loginButton}
+          onPress={() => navigation.navigate("Login")}
+        />
+        <AppButton
+          title="sign up"
+          style={styles.signupButton}
+          onPress={() => navigation.navigate("SignUp")}
+        />
       </View>
     </ImageBackground>
   );
