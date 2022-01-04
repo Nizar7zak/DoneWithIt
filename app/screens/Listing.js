@@ -4,7 +4,7 @@ import { SafeScreen } from "../components/SafeScreen";
 import { Card } from "../components/Card";
 import fakeData from "../project/data/fakeData";
 
-const Lisitng = () => {
+const Lisitng = ({ navigation }) => {
   return (
     <SafeScreen style={styles.container}>
       <FlatList
@@ -12,6 +12,7 @@ const Lisitng = () => {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <Card
+            onPress={() => navigation.navigate("ListingDetails", item)}
             title={item.name}
             subTitle={`${item.price} $`}
             imagePath={item.image}

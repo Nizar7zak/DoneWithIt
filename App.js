@@ -11,7 +11,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <NavigationContainer theme={navigationTheme}>
-        <AuthNavigator />
+        <TabsNavigator />
       </NavigationContainer>
       <StatusBarExpo style="auto" />
     </View>
