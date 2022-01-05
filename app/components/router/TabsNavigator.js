@@ -28,7 +28,7 @@ export const TabsNavigator = () => {
         component={ListingEdit}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="plus" color={color} size={size} />
+            <MaterialCommunityIcons name="plus-circle" color={color} size={size} />
           ),
         }}
       />
