@@ -5,6 +5,7 @@ import { FeedNavigator } from "./FeedNavigator";
 import { AccountNavigator } from "./AccountNavigator";
 import ListingEdit from "../../screens/ListingEdit";
 import NewlistingButton from "./NewlistingButton";
+import routes from "./routes";
 
 const Tab = createBottomTabNavigator();
 
@@ -16,7 +17,7 @@ export const TabsNavigator = () => {
       }}
     >
       <Tab.Screen
-        name="Feed"
+        name={routes.FEED}
         component={FeedNavigator}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -25,18 +26,18 @@ export const TabsNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="ListingEdit"
+        name={routes.LISTING_EDIT}
         component={ListingEdit}
         options={({ navigation }) => ({
           tabBarButton: () => (
             <NewlistingButton
-              onPress={() => navigation.navigate("ListingEdit")}
+              onPress={() => navigation.navigate(routes.LISTING_EDIT)}
             />
           ),
         })}
       />
       <Tab.Screen
-        name="account"
+        name={routes.ACCOUNT}
         component={AccountNavigator}
         options={{
           tabBarIcon: ({ color, size }) => (

@@ -3,6 +3,7 @@ import { StyleSheet, FlatList } from "react-native";
 import { SafeScreen } from "../components/SafeScreen";
 import { Card } from "../components/Card";
 import fakeData from "../project/data/fakeData";
+import routes from "../components/router/routes";
 
 const Lisitng = ({ navigation }) => {
   return (
@@ -12,7 +13,7 @@ const Lisitng = ({ navigation }) => {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <Card
-            onPress={() => navigation.navigate("ListingDetails", item)}
+            onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
             title={item.name}
             subTitle={`${item.price} $`}
             imagePath={item.image}

@@ -4,6 +4,7 @@ import colors from "../config/colors";
 import { AppText } from "../components/AppText";
 import { AppButton } from "../components/AppButton";
 import { AppImage } from "../components/AppImage";
+import routes from "../components/router/routes";
 
 const Welcome = ({ navigation }) => {
   return (
@@ -23,12 +24,12 @@ const Welcome = ({ navigation }) => {
         <AppButton
           title="login"
           style={styles.loginButton}
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => navigation.navigate(routes.LOGIN)}
         />
         <AppButton
           title="sign up"
           style={styles.signupButton}
-          onPress={() => navigation.navigate("SignUp")}
+          onPress={() => navigation.navigate(routes.SIGN_UP)}
         />
       </View>
     </ImageBackground>
