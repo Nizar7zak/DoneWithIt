@@ -2,8 +2,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { FeedNavigator } from "./FeedNavigator";
-import ListingEdit from "../../screens/ListingEdit";
 import { AccountNavigator } from "./AccountNavigator";
+import ListingEdit from "../../screens/ListingEdit";
+import NewlistingButton from "./NewlistingButton";
 
 const Tab = createBottomTabNavigator();
 
@@ -24,13 +25,15 @@ export const TabsNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="edit"
+        name="ListingEdit"
         component={ListingEdit}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="plus-circle" color={color} size={size} />
+        options={({ navigation }) => ({
+          tabBarButton: () => (
+            <NewlistingButton
+              onPress={() => navigation.navigate("ListingEdit")}
+            />
           ),
-        }}
+        })}
       />
       <Tab.Screen
         name="account"
