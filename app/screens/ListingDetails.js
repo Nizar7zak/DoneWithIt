@@ -8,9 +8,9 @@ const ListingDetails = ({ route }) => {
   const item = route.params;
   return (
     <View style={styles.listingContainer}>
-      <AppImage imageStyle={styles.imageStyle} imagePath={item.image} />
+      <AppImage imageStyle={styles.imageStyle} imagePath={{uri : item.images[0].url}} />
       <View style={styles.detailsContainer}>
-        <AppText style={styles.title}>{item.name}</AppText>
+        <AppText style={styles.title}>{item.title}</AppText>
         <AppText style={styles.subTitle}>{`${item.price} $`}</AppText>
       </View>
 
