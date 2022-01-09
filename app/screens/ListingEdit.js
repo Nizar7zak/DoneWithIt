@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { useState } from "react";
 
 import { CategoryPickerItem } from "../components/CategoryPickerItem";
 import {
@@ -13,21 +14,28 @@ import useLocation from "../hooks/useLocation";
 import icons from "../project/data/icons";
 import listingEditSchema from "../project/schema/listingEditSchema";
 import listingApi from "../api/lisitings";
+import UploadScreen from "./UploadScreen";
 
 const ListingEdit = () => {
   const location = useLocation();
+  const [visibleUpload, setVisibleUpload] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   const handleSubmit = async (listing) => {
+    setVisibleUpload(true);
     const result = await listingApi.addListing(
       { ...listing, location },
-      (progress) => console.log(progress)
+      (progress) => setProgress(progress)
     );
+    setVisibleUpload(false);
+
     if (!result.ok) return alert("couldn't save the listings.");
     alert("Success!");
   };
 
   return (
     <SafeScreen style={styles.container}>
+      <UploadScreen visible={visibleUpload} progress={progress} />
       <AppForm
         initialValues={{
           title: "",
