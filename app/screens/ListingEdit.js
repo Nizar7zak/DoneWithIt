@@ -12,9 +12,15 @@ import { SafeScreen } from "../components/SafeScreen";
 import useLocation from "../hooks/useLocation";
 import icons from "../project/data/icons";
 import listingEditSchema from "../project/schema/listingEditSchema";
+import listingApi from "../api/lisitings";
 
 const ListingEdit = () => {
   const location = useLocation();
+  const handleSubmit = async (listing) => {
+    const result = await listingApi.addListing({ ...listing, location });
+    if (!result.ok) return alert("couldn't save the listings.");
+    alert("Success!");
+  };
 
   return (
     <SafeScreen style={styles.container}>
@@ -27,7 +33,7 @@ const ListingEdit = () => {
           image: [],
         }}
         validationSchema={listingEditSchema}
-        onSubmit={(values) => console.log(location)}
+        onSubmit={handleSubmit}
       >
         <FormImagePicker name="image" />
         <AppFormField maxLength={255} name="title" placeholder="Title" />
