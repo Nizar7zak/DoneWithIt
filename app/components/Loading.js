@@ -1,29 +1,12 @@
-import { ActivityIndicator, StyleSheet, View } from "react-native";
+import LottieView from "lottie-react-native";
 
-import colors from "../config/colors";
-import { AppText } from "./AppText";
-
-export const LoadingScreen = () => {
+export function LoadingScreen({ visible = false }) {
+  if (!visible) return null;
   return (
-    <View style={styles.container}>
-      <ActivityIndicator color="#0000ff" size="large" />
-      <AppText
-        color={colors.black}
-        style={styles.loadingText}
-      >
-        Loading...
-      </AppText>
-    </View>
+    <LottieView
+      source={require("../assets/animations/loader.json")}
+      autoPlay
+      loop
+    />
   );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  loadingText: {
-    marginTop: 10,
-  },
-});
+}

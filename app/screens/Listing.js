@@ -12,16 +12,16 @@ import routes from "../components/router/routes";
 const Lisitng = ({ navigation }) => {
   const [listings, setListings] = useState([]);
   const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     loadListings();
   }, []);
 
   const loadListings = async () => {
-    setLoading(true);
+    // setLoading(true);
     const response = await apiListings.getListings();
-    setLoading(false);
+    // setLoading(false);
 
     if (!response.ok) return setError(true);
 
@@ -37,8 +37,8 @@ const Lisitng = ({ navigation }) => {
           <AppButton title="Retry" onPress={() => loadListings()} />
         </>
       )}
-      {loading && <LoadingScreen />}
-      <FlatList
+      {loading && <LoadingScreen visible={loading} />}
+      {/* <FlatList
         data={listings}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
@@ -49,7 +49,7 @@ const Lisitng = ({ navigation }) => {
             imagePath={{ uri: item.images[0].url }}
           />
         )}
-      />
+      /> */}
     </SafeScreen>
   );
 };
