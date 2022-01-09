@@ -1,33 +1,27 @@
 import { StyleSheet, FlatList } from "react-native";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { AppText } from "../components/AppText";
 import { AppButton } from "../components/AppButton";
 import { LoadingScreen } from "../components/Loading";
 import { SafeScreen } from "../components/SafeScreen";
 import { Card } from "../components/Card";
-import apiListings from "../api/lisitings";
 import routes from "../components/router/routes";
 
+import apiListings from "../api/lisitings";
+import useApi from "../hooks/useApi";
+
 const Lisitng = ({ navigation }) => {
-  const [listings, setListings] = useState([]);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const {
+    data: listings,
+    error,
+    loading,
+    request: loadListings,
+  } = useApi(apiListings.getListings);
 
   useEffect(() => {
     loadListings();
   }, []);
-
-  const loadListings = async () => {
-    // setLoading(true);
-    const response = await apiListings.getListings();
-    // setLoading(false);
-
-    if (!response.ok) return setError(true);
-
-    setError(false);
-    setListings(response.data);
-  };
 
   return (
     <SafeScreen style={styles.container}>
@@ -38,7 +32,7 @@ const Lisitng = ({ navigation }) => {
         </>
       )}
       {loading && <LoadingScreen visible={loading} />}
-      {/* <FlatList
+      <FlatList
         data={listings}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
@@ -49,7 +43,7 @@ const Lisitng = ({ navigation }) => {
             imagePath={{ uri: item.images[0].url }}
           />
         )}
-      /> */}
+      />
     </SafeScreen>
   );
 };
