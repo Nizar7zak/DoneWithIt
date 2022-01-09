@@ -16,8 +16,12 @@ import listingApi from "../api/lisitings";
 
 const ListingEdit = () => {
   const location = useLocation();
+
   const handleSubmit = async (listing) => {
-    const result = await listingApi.addListing({ ...listing, location });
+    const result = await listingApi.addListing(
+      { ...listing, location },
+      (progress) => console.log(progress)
+    );
     if (!result.ok) return alert("couldn't save the listings.");
     alert("Success!");
   };
