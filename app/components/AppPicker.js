@@ -61,7 +61,7 @@ export const AppPicker = ({
           />
           <FlatList
             data={categories}
-            keyExtractor={(item) => item.value.toString()}
+            keyExtractor={(item) => item.id.toString()}
             numColumns={numberOfColumns}
             renderItem={({ item }) => (
               <PickerItemComponent

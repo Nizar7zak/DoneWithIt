@@ -8,7 +8,7 @@ const addListing = (lisitng) => {
   const data = new FormData();
   data.append("title", lisitng.title);
   data.append("price", lisitng.price);
-  data.append("categoryId", lisitng.category.value);
+  data.append("categoryId", lisitng.category.id);
   data.append("description", lisitng.description);
 
   lisitng.image.forEach((photo, index) => {
