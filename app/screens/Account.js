@@ -1,20 +1,14 @@
-import { useContext } from "react";
 import { StyleSheet, FlatList, View } from "react-native";
 
 import { Icon } from "../components/Icon";
 import { SafeScreen } from "../components/SafeScreen";
 import { ListItem, ItemSeparator } from "../components/lists";
 import ItemsAccountScreen from "../project/data/ItemsAccountScreen";
-import AuthContext from "../auth/context";
-import authStorage from "../auth/storage";
+import useAuth from "../auth/useAuth";
 
 const Account = ({ navigation }) => {
-  const { user, setUser } = useContext(AuthContext);
+  const { user, logOut } = useAuth();
 
-  const handleLogout = () => {
-    setUser(null);
-    authStorage.removeToken();
-  };
   return (
     <SafeScreen>
       <View style={styles.container}>
@@ -46,7 +40,7 @@ const Account = ({ navigation }) => {
       <ListItem
         title="Log Out"
         IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
-        onPress={handleLogout}
+        onPress={logOut}
       />
     </SafeScreen>
   );

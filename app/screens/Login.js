@@ -1,6 +1,5 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { StyleSheet } from "react-native";
-import jwtDecode from "jwt-decode";
 
 import { SafeScreen } from "../components/SafeScreen";
 import { AppImage } from "../components/AppImage";
@@ -12,26 +11,21 @@ import {
 } from "../components/forms";
 import loginSchema from "../project/schema/loginSchema";
 import authLogin from "../api/auth";
-import AuthContext from "../auth/context";
-import authStorage from "../auth/storage";
+import useAuth from "../auth/useAuth";
 
 const Login = () => {
   const [loginFailed, setLoginFailed] = useState(false);
   const [error, setError] = useState("");
-  const authContext = useContext(AuthContext);
+  const { logIn } = useAuth();
 
   const handleSubmit = async ({ email, password }) => {
     const result = await authLogin.login(email, password);
-
     if (!result.ok) {
       setLoginFailed(true);
       setError(result.data.error);
-    } else {
-      const user = jwtDecode(result.data);
-      authContext.setUser(user);
-      await authStorage.setToken(result.data);
-      return setLoginFailed(false);
     }
+    setLoginFailed(false);
+    logIn(result.data);
   };
   return (
     <SafeScreen style={styles.container}>
