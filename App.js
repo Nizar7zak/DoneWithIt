@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { Apploading} from "expo"
 import { StatusBar as StatusBarExpo } from "expo-status-bar";
-import jwtDecode from "jwt-decode";
 
 import colors from "./app/config/colors";
 import { TabsNavigator } from "./app/components/router/TabsNavigator";
@@ -16,13 +14,13 @@ import authStorage from "./app/auth/storage";
 export default function App() {
   const [user, setUser] = useState();
 
-  const restoreToken = async () => {
-    const token = await authStorage.getToken();
-    if (!token) return;
-    setUser(jwtDecode(token));
+  const restoreUser = async () => {
+    const user = await authStorage.getUser();
+    if (user) return setUser(user);
   };
+
   useEffect(() => {
-    restoreToken();
+    restoreUser();
   }, []);
   return (
     <View style={styles.container}>
