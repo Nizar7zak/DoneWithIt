@@ -1,21 +1,49 @@
+import { useContext, useState } from "react";
 import { StyleSheet } from "react-native";
+import jwtDecode from "jwt-decode";
 
 import { SafeScreen } from "../components/SafeScreen";
 import { AppImage } from "../components/AppImage";
-import { AppForm, AppFormField, SubmitButton } from "../components/forms";
+import {
+  AppForm,
+  AppFormField,
+  ErrorMessage,
+  SubmitButton,
+} from "../components/forms";
 import loginSchema from "../project/schema/loginSchema";
+import authLogin from "../api/auth";
+import AuthContext from "../auth/context";
+import authStorage from "../auth/storage";
 
 const Login = () => {
+  const [loginFailed, setLoginFailed] = useState(false);
+  const [error, setError] = useState("");
+  const authContext = useContext(AuthContext);
+
+  const handleSubmit = async ({ email, password }) => {
+    const result = await authLogin.login(email, password);
+
+    if (!result.ok) {
+      setLoginFailed(true);
+      setError(result.data.error);
+    } else {
+      const user = jwtDecode(result.data);
+      authContext.setUser(user);
+      await authStorage.setToken(result.data);
+      return setLoginFailed(false);
+    }
+  };
   return (
     <SafeScreen style={styles.container}>
       <AppImage
         imageStyle={styles.logo}
         imagePath={require("../assets/logo.png")}
       />
+      <ErrorMessage error={error} visible={loginFailed} />
       <AppForm
         initialValues={{ email: "", password: "" }}
         validationSchema={loginSchema}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={handleSubmit}
       >
         <AppFormField
           name="email"
