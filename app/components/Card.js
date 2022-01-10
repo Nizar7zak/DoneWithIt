@@ -1,21 +1,27 @@
 import { View, StyleSheet } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import { Image } from "react-native-expo-image-cache";
 
 import colors from "../config/colors";
-import { AppImage } from "./AppImage";
 import { AppText } from "./AppText";
 
 export const Card = ({
   title,
   subTitle,
   imagePath,
+  thumbnailUrl,
   onPress,
   cardStyle = {},
 }) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={[styles.cardContainer, cardStyle]}>
-        <AppImage imageStyle={styles.imageStyle} imagePath={imagePath} />
+        <Image
+          style={styles.imageStyle}
+          uri={imagePath.uri}
+          preview={{ uri: thumbnailUrl }}
+          tint="light"
+        />
         <View style={styles.detailsContainer}>
           <AppText style={styles.title}>{title}</AppText>
           <AppText style={styles.subTitle}>{subTitle}</AppText>

@@ -41,6 +41,7 @@ const Lisitng = ({ navigation }) => {
             title={item.title}
             subTitle={`${item.price} $`}
             imagePath={{ uri: item.images[0].url }}
+            thumbnailUrl={item.images[0].thumbnailUrl}
           />
         )}
       />
