@@ -22,7 +22,8 @@ const Login = () => {
     const result = await authLogin.login(email, password);
     if (!result.ok) {
       setLoginFailed(true);
-      setError(result.data.error);
+      return setError(result.data.error);
+    
     }
     setLoginFailed(false);
     logIn(result.data);
