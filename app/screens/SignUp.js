@@ -42,46 +42,48 @@ const SignUp = () => {
   };
 
   return (
-    <SafeScreen style={styles.container}>
+    <>
       <LoadingScreen visible={registerApi.loading || loginApi.loading} />
-      <AppImage
-        imageStyle={styles.logo}
-        imagePath={require("../assets/logo.png")}
-      />
-      <ErrorMessage error={error} />
-      <AppForm
-        initialValues={{ name: "", email: "", password: "" }}
-        validationSchema={signUpSchema}
-        onSubmit={handleSubmit}
-      >
-        <AppFormField
-          name="name"
-          placeholder="Name"
-          iconName="face-profile"
-          autoCapitalize="none"
-          autoCorrect={false}
+      <SafeScreen style={styles.container}>
+        <AppImage
+          imageStyle={styles.logo}
+          imagePath={require("../assets/logo.png")}
         />
-        <AppFormField
-          name="email"
-          placeholder="Email"
-          iconName="email"
-          keyboardType="email-address"
-          autoCapitalize="none"
-          autoCorrect={false}
-          textContentType="emailAddress"
-        />
-        <AppFormField
-          name="password"
-          placeholder="Password"
-          iconName="lock"
-          autoCapitalize="none"
-          autoCorrect={false}
-          textContentType="password"
-          secureTextEntry
-        />
-        <SubmitButton title="sign up" />
-      </AppForm>
-    </SafeScreen>
+        <ErrorMessage error={error} />
+        <AppForm
+          initialValues={{ name: "", email: "", password: "" }}
+          validationSchema={signUpSchema}
+          onSubmit={handleSubmit}
+        >
+          <AppFormField
+            name="name"
+            placeholder="Name"
+            iconName="face-profile"
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
+          <AppFormField
+            name="email"
+            placeholder="Email"
+            iconName="email"
+            keyboardType="email-address"
+            autoCapitalize="none"
+            autoCorrect={false}
+            textContentType="emailAddress"
+          />
+          <AppFormField
+            name="password"
+            placeholder="Password"
+            iconName="lock"
+            autoCapitalize="none"
+            autoCorrect={false}
+            textContentType="password"
+            secureTextEntry
+          />
+          <SubmitButton title="sign up" />
+        </AppForm>
+      </SafeScreen>
+    </>
   );
 };
 

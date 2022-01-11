@@ -24,28 +24,30 @@ const Lisitng = ({ navigation }) => {
   }, []);
 
   return (
-    <SafeScreen style={styles.container}>
-      {error && (
-        <>
-          <AppText>Couldn't retrive the lisitings</AppText>
-          <AppButton title="Retry" onPress={() => loadListings()} />
-        </>
-      )}
+    <>
       {loading && <LoadingScreen visible={loading} />}
-      <FlatList
-        data={listings}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <Card
-            onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
-            title={item.title}
-            subTitle={`${item.price} $`}
-            imagePath={{ uri: item.images[0].url }}
-            thumbnailUrl={item.images[0].thumbnailUrl}
-          />
+      <SafeScreen style={styles.container}>
+        {error && (
+          <>
+            <AppText>Couldn't retrive the lisitings</AppText>
+            <AppButton title="Retry" onPress={() => loadListings()} />
+          </>
         )}
-      />
-    </SafeScreen>
+        <FlatList
+          data={listings}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <Card
+              onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
+              title={item.title}
+              subTitle={`${item.price} $`}
+              imagePath={{ uri: item.images[0].url }}
+              thumbnailUrl={item.images[0].thumbnailUrl}
+            />
+          )}
+        />
+      </SafeScreen>
+    </>
   );
 };
 
