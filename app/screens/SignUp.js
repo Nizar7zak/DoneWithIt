@@ -12,13 +12,17 @@ import {
 import signUpSchema from "../project/schema/signUpSchema";
 import authentication from "../api/auth";
 import useAuth from "../auth/useAuth";
+import useApi from "../hooks/useApi";
+import { LoadingScreen } from "../components/Loading";
 
 const SignUp = () => {
   const [error, setError] = useState("");
   const auth = useAuth();
 
+  const registerApi = useApi(authentication.signup);
+  const loginApi = useApi(authentication.login);
   const handleSubmit = async (userInfo) => {
-    const response = await authentication.signup(userInfo);
+    const response = await registerApi.request(userInfo);
 
     if (!response.ok) {
       if (response.data) {
@@ -30,12 +34,16 @@ const SignUp = () => {
       return;
     }
 
-    const {data: authToken} = await authentication.login(userInfo.email, userInfo.password);
+    const { data: authToken } = await loginApi.request(
+      userInfo.email,
+      userInfo.password
+    );
     auth.logIn(authToken);
   };
 
   return (
     <SafeScreen style={styles.container}>
+      <LoadingScreen visible={registerApi.loading || loginApi.loading} />
       <AppImage
         imageStyle={styles.logo}
         imagePath={require("../assets/logo.png")}
