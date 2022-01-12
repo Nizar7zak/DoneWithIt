@@ -9,6 +9,7 @@ import { AccountNavigator } from "./AccountNavigator";
 import ListingEdit from "../../screens/ListingEdit";
 import NewlistingButton from "./NewlistingButton";
 import routes from "./routes";
+import expoPushToken from "../../api/expoPushToken";
 
 const Tab = createBottomTabNavigator();
 
@@ -22,7 +23,7 @@ export const TabsNavigator = () => {
       if (!permissions.granted) return;
 
       const token = await Notifications.getExpoPushTokenAsync();
-      console.log(token.data);
+      expoPushToken.register(token.data);
     } catch (error) {
       console.log(error);
     }
