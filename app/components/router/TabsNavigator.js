@@ -10,12 +10,15 @@ import ListingEdit from "../../screens/ListingEdit";
 import NewlistingButton from "./NewlistingButton";
 import routes from "./routes";
 import expoPushToken from "../../api/expoPushToken";
-
+import navigation from "./rootNavigation";
 const Tab = createBottomTabNavigator();
 
 export const TabsNavigator = () => {
   useEffect(() => {
     registerForPushNotifications();
+    Notifications.addNotificationResponseReceivedListener((notification) =>
+      navigation.navigate(routes.ACCOUNT)
+    );
   }, []);
   const registerForPushNotifications = async () => {
     try {
