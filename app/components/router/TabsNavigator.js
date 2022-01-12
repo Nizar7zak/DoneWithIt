@@ -7,10 +7,15 @@ import ListingEdit from "../../screens/ListingEdit";
 import NewlistingButton from "./NewlistingButton";
 import routes from "./routes";
 import useNotification from "../../hooks/useNotification";
+import { navigate } from "./rootNavigation";
 
 const Tab = createBottomTabNavigator();
+
 export const TabsNavigator = () => {
-  useNotification();
+  const notificationListener = () => {
+    navigate(routes.ACCOUNT);
+  };
+  useNotification(notificationListener);
   return (
     <Tab.Navigator
       screenOptions={{
