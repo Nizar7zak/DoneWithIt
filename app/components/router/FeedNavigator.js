@@ -8,12 +8,11 @@ const Stack = createNativeStackNavigator();
 
 export const FeedNavigator = () => {
   return (
-    <Stack.Navigator screenOptions={{ presentation: "modal", headerShown: false }}>
+    <Stack.Navigator
+      screenOptions={{ presentation: "modal", headerShown: false }}
+    >
       <Stack.Screen name={routes.LISTINGS} component={Lisitng} />
-      <Stack.Screen
-        name={routes.LISTING_DETAILS}
-        component={ListingDetails}
-      />
+      <Stack.Screen name={routes.LISTING_DETAILS} component={ListingDetails} />
     </Stack.Navigator>
   );
 };

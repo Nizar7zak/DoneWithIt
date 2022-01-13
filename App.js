@@ -14,7 +14,6 @@ import { navigationRef } from "./app/components/router/rootNavigation";
 
 export default function App() {
   const [user, setUser] = useState();
-
   const restoreUser = async () => {
     const user = await authStorage.getUser();
     if (user) return setUser(user);

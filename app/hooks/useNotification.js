@@ -5,11 +5,25 @@ import * as Permissions from "expo-location";
 import expoPushToken from "../api/expoPushToken";
 
 export default useNotifications = (notificationListener) => {
+  
+  Notifications.setNotificationHandler({
+    handleNotification: async () => {
+      return {
+        shouldShowAlert: true,
+        shouldPlaySound: true,
+        shouldSetBadge: true,
+      };
+    },
+  });
   useEffect(() => {
     registerForPushNotifications();
+
     if (notificationListener)
-      Notifications.addNotificationResponseReceivedListener(notificationListener);
+      Notifications.addNotificationResponseReceivedListener(
+        notificationListener
+      );
   }, []);
+
   const registerForPushNotifications = async () => {
     try {
       const permissions = await Permissions.requestForegroundPermissionsAsync();

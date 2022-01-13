@@ -23,7 +23,6 @@ const Login = () => {
     if (!result.ok) {
       setLoginFailed(true);
       return setError(result.data.error);
-    
     }
     setLoginFailed(false);
     logIn(result.data);

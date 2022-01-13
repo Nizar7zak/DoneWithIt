@@ -1,14 +1,18 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, KeyboardAvoidingView, Platform } from "react-native";
 import { Image } from "react-native-expo-image-cache";
 
 import { AppText } from "../components/AppText";
+import ContactSellerForm from "../components/ContactSellerForm";
 import { ListItem } from "../components/lists";
 import colors from "../config/colors";
 
 const ListingDetails = ({ route }) => {
   const item = route.params;
   return (
-    <View style={styles.listingContainer}>
+    <KeyboardAvoidingView
+      behavior="position"
+      keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 100}
+    >
       <Image
         style={styles.imageStyle}
         uri={item.images[0].url}
@@ -26,18 +30,15 @@ const ListingDetails = ({ route }) => {
         subTitle="5 Items"
         imagePath={require("../assets/user1.jpg")}
       />
-    </View>
+      <ContactSellerForm listing={item} />
+    </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
-  listingContainer: {
-    flex: 1,
-    justifyContent: "flex-start",
-  },
   imageStyle: {
     width: "100%",
-    height: 300,
+    height: 200,
   },
   detailsContainer: {
     padding: 20,
